@@ -1,0 +1,68 @@
+{% load static %}
+<header class="header-wrap header-1">
+     <div class="container">
+          <div class="row align-items-center">
+               <div class="col-6 col-sm-5 col-xl-2">
+                    <div class="logo">
+                         <a href="{% url 'home' %}">
+                              <img src="{% static 'svgs/logo.svg' %}" alt="IsTech logo" width="" height=""/>
+                         </a>
+                    </div>
+               </div>
+               <div class="col-xl-7 d-none d-xl-block">
+                    <div class="main-menu">
+                         <ul>
+                              <li>
+                                   <a href="{% url 'home' %}">Home</a>
+                              </li>
+                              <li>
+                                   <a href="{% url 'service' %}">Services</a>
+                              </li>
+                              <li>
+                                   <a href="{% url 'work' %}">What we do</a>
+                              </li>
+                              <li>
+                                   <a href="{% url 'contact' %}">Contact</a>
+                              </li>
+                         </ul>
+                    </div>
+               </div>
+               <div class="col-xl-3 col-sm-6 d-none d-sm-block pl-xl-0 text-right">
+                    <!-- <a href="contact.html" class="theme-btn">Consultancy <i class="fas fa-arrow-right"></i></a> -->
+               </div>
+               <div class="mobile-nav-bar d-block col-sm-1 col-6 d-xl-none">
+                    <div class="mobile-nav-wrap">
+                         <div id="hamburger">
+                              <i class="fal fa-bars"></i>
+                         </div>
+                         <div class="mobile-nav">
+                              <button type="button" class="close-nav" aria-label="Menu button">
+                                   <i class="fal fa-times-circle"></i>
+                              </button>
+                              <nav class="sidebar-nav">
+                                   <ul class="metismenu" id="mobile-menu">
+                                        <li>
+                                             <a href="{% url 'home' %}">Home</a>
+                                        </li>
+                                        <li>
+                                             <a href="{% url 'service' %}">Services</a>
+                                        </li>
+                                        <li>
+                                             <a href="{% url 'work' %}">Work</a>
+                                        </li>
+                                        <li>
+                                             <a href="{% url 'contact' %}">Contact</a>
+                                        </li>
+                                   </ul>
+                              </nav>
+                              <div class="action-bar">
+                                   <a href="mailto:modinatheme@gmail.com"><i class="fal fa-envelope-open-text"></i>info@webmail.com</a>
+                                   <a href="tel:123-456-7890"><i class="fal fa-phone"></i>987-098-098-09</a>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="overlay"></div>
+               </div>
+          </div>
+     </div>
+</header>

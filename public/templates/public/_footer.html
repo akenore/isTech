@@ -1,0 +1,92 @@
+{% load static tz %}
+{% now "Y" as current_year %}
+<footer class="footer-1 footer-wrap">
+     <div class="footer-widgets">
+          <div class="container">
+               <div class="row justify-content-between">
+                    <div class="col-md-6 col-xl-6 col-12 pr-xl-4">
+                         <div class="single-footer-wid site_footer_widget newsletter_widget">
+                              <a href="{% url 'home' %}">
+                                   <img src="{% static 'svgs/logo.svg' %}" alt="IsTech logo" width="" height=""/>
+                              </a>
+                              <p class="mt-4">
+                                   IsTech, a leading name in the IT solutions industry, offers a wide spectrum of services to cater to your business's technology needs. <br/>With a rich history of delivering cutting-edge solutions, we pride ourselves on being a trusted partner for businesses seeking to thrive in the digital landscape.
+                              </p>
+                              {% comment %} <div class="newsletter_box">
+                                   <form action="#">
+                                        <input type="email" placeholder="Email address" required/>
+                                        <button class="submit-btn" type="submit">
+                                             <i class="fal fa-envelope-open-text"></i>
+                                        </button>
+                                   </form>
+                              </div> {% endcomment %}
+                         </div>
+                    </div>
+                    <div class="col-md-6 col-xl-2 col-12">
+                         <div class="single-footer-wid">
+                              <div class="wid-title">
+                                   <h4>Company</h4>
+                              </div>
+                              <ul>
+                                   <li>
+                                        <a href="{% url 'home' %}">Home</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'work' %}">Work</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'contact' %}">Contact</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="col-md-6 col-xl-3 col-12">
+                         <div class="single-footer-wid contact_widget_2">
+                              <div class="wid-title">
+                                   <h4>Contact Us</h4>
+                              </div>
+                              <div class="contact-us">
+                                   <div class="single-contact-info">
+                                        <div class="icon">
+                                             <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                             <p>
+                                                  Rue Moncef Bey,<br/>
+                                                  Sousse, Kalaa Kebira
+                                             </p>
+                                        </div>
+                                   </div>
+                                   <div class="single-contact-info">
+                                        <div class="icon">
+                                             <i class="fas fa-envelope-open-text"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                             <p>info@istech.tn</p>
+                                        </div>
+                                   </div>
+                                   <div class="single-contact-info">
+                                        <div class="icon">
+                                             <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                             <p>+216 73 350 145</p>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <div class="footer-bottom">
+          <div class="container text-center">
+               <div class="footer-bottom-content">
+                    © {{current_year}} <a href="{% url 'home' %}">IsTech</a>. All Rights Reserved
+               </div>
+          </div>
+     </div>
+</footer>

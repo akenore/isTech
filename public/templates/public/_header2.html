@@ -1,0 +1,106 @@
+{% load static %}
+<header class="header-wrap header-2">
+     <div class="top-header d-none d-md-block">
+          <div class="container-flud">
+               <div class="row">
+                    <div class="col-md-7 pr-md-0 col-12">
+                         <div class="header-cta">
+                              <ul>
+                                   <li>
+                                        <a href="mailto:info@istech.tn"><i class="fal fa-envelope"></i> info@istech.tn</a>
+                                   </li>
+                                   <li>
+                                        <a href="tel:+21673350145"><i class="fal fa-phone"></i> +216 73 350 145</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="col-md-5 col-12">
+                         <div class="header-right-cta d-flex justify-content-end">
+                              <div class="social-profile mr-30">
+                                   <a href="https://www.facebook.com/istech.official"
+                                      aria-label="Facebook"
+                                      target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                   <a href="https://www.linkedin.com/company/istech-tn"
+                                      aria-label="linkedIn"
+                                      target="_blank"><i class="fab fa-linkedin"></i></a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <div class="main-header-wraper">
+          <div class="container-fluid">
+               <div class="row align-items-center justify-content-between">
+                    <div class="header-logo">
+                         <div class="logo mb-2">
+                              <a href="{% url 'home' %}">
+                                   <img src="{% static 'svgs/logo.svg' %}"
+                                        alt="IsTech logo"
+                                        width=""
+                                        height=""/>
+                              </a>
+                         </div>
+                    </div>
+                    <div class="header-menu d-none d-xl-block">
+                         <div class="main-menu">
+                              <ul>
+                                   <li>
+                                        <a href="{% url 'home' %}">Home</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'service' %}">Services</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'work' %}">What we do</a>
+                                   </li>
+                                   <li>
+                                        <a href="{% url 'contact' %}">Contact</a>
+                                   </li>
+                              </ul>
+                         </div>
+                    </div>
+                    <div class="header-right d-flex align-items-center">
+                         <div class="header-btn-cta d-none-mobile">
+                              <a href="{% url 'contact' %}" class="theme-btn">Consultancy <i class="fas fa-arrow-right"></i></a>
+                         </div>
+                         <div class="mobile-nav-bar d-block ml-3 ml-sm-5 d-xl-none">
+                              <div class="mobile-nav-wrap">
+                                   <div id="hamburger">
+                                        <i class="fal fa-bars"></i>
+                                   </div>
+                                   <div class="mobile-nav">
+                                        <button type="button" class="close-nav">
+                                             <i class="fal fa-times-circle"></i>
+                                        </button>
+                                        <nav class="sidebar-nav">
+                                             <ul class="metismenu" id="mobile-menu">
+                                                  <li>
+                                                       <a href="{% url 'home' %}">Home</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="{% url 'service' %}">Services</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="{% url 'work' %}">What we do</a>
+                                                  </li>
+                                                  <li>
+                                                       <a href="{% url 'contact' %}">Contact</a>
+                                                  </li>
+                                             </ul>
+                                        </nav>
+                                        <div class="action-bar">
+                                             <a href="mailto:modinatheme@gmail.com"><i class="fal fa-envelope-open-text"></i>info@webmail.com</a>
+                                             <a href="tel:123-456-7890"><i class="fal fa-phone"></i>987-098-098-09</a>
+                                             <a href="{% url 'contact' %}" class="d-btn theme-btn black">Consultancy</a>
+                                        </div>
+                                   </div>
+                              </div>
+                              <div class="overlay"></div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</header>
