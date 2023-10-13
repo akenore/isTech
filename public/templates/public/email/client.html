@@ -1,0 +1,77 @@
+{% load static %}
+<style>  
+     body {
+          background-color: transparent;
+     }
+     
+     p {
+          font-size: 13px;
+     }
+     
+     .logo {
+          text-align: center;
+          padding-buttom: 20px
+     }
+     .logo-im{
+          max-height: 44px!important;
+     }
+     
+     .footer {
+          text-align: center;
+          padding-top: 60px
+     }
+     
+     .inline-address {
+          display: inline-block;
+          margin-right: 20px;
+     }
+</style>
+<div class="logo">
+     <img class="logo-im"
+          src="{{ site_url }}static/img/logo-email.png"
+          alt="logo strakon"
+          width="179px"
+          height="44px" />
+</div>
+<div>
+     <p>Confirmation of Request for IT Consultancy Services</p>
+     <p>  
+          Thank you for your interest in IsTech's IT consultancy services.<br />
+          We are excited to begin our collaboration and provide you with the best possible solutions for your business needs.
+     </p>
+     <p>
+          Application Details:
+          <ul>
+               <li>
+                    <b>Name</b>: {{ name }}
+               </li>
+               <li>
+                    <b>Email</b>: {{ email }}
+               </li>
+               <li>
+                    <b>Phone/Mobile</b>: {{ phone }}
+               </li>
+               <li>
+                    <b>Message</b>: {{ message }}
+               </li>
+          </ul>
+     </p>
+     <p>
+          This email is to confirm that we have received your request for IT consultancy services. Our team is currently reviewing your requirements and will reach out to you shortly to discuss the next steps.
+          <br />
+          In the meantime, please feel free to browse through our website to learn more about our comprehensive range of services and solutions. Should you have any immediate questions or concerns, please don't hesitate to contact us.
+          <br />
+          We appreciate the opportunity to work with you and look forward to the possibility of building a successful partnership.
+     </p>
+     <p>
+          Kind regards,
+          <br />
+          IsTech support team
+     </p>
+</div>
+<div class="footer">
+     <small>This email is an automatic message.
+          <br />
+          You receive this email following your request on the site istech.tn
+     </small>
+</div>

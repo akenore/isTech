@@ -1,0 +1,78 @@
+{% load static %}
+<style>  
+     body {
+          background-color: transparent;
+     }
+     
+     p {
+          font-size: 13px;
+     }
+     
+     .logo {
+          text-align: center;
+          padding-buttom: 20px
+     }
+     .logo-im{
+          max-height: 44px!important;
+     }
+     
+     .footer {
+          text-align: center;
+          padding-top: 60px
+     }
+     
+     .inline-address {
+          display: inline-block;
+          margin-right: 20px;
+     }
+</style>
+<div class="logo">
+     <img class="logo-im"
+          src="{{ site_url }}static/img/logo-email.png"
+          alt="logo strakon"
+          width="179px"
+          height="44px" />
+</div>
+<div>
+     <p>A new application for a consultancy is registered</p>
+     <p>
+          I hope this message finds you well.
+          I would like to inform you that a new consultancy application for isTech has been submitted by a customer and requires your attention.
+     </p>
+     <p>
+          Application Details:
+          <ul>
+               <li>
+                    <b>Name</b>: {{ name }}
+               </li>
+               <li>
+                    <b>Email</b>: {{ email }}
+               </li>
+               <li>
+                    <b>Phone/Mobile</b>: {{ phone }}
+               </li>
+               <li>
+                    <b>Message</b>: {{ message }}
+               </li>
+          </ul>
+          <p>
+               You can check the details of the request <a href='{{ object_url }}' target='_blank'>in here</a>.
+          </p>
+     </p>
+     <p>
+          Once the application is approved, please follow the procedures necessary to grant the client request.
+          <br />
+          Thank you for your prompt attention to this request.
+     </p>
+     <p>
+          Kind regards,
+          <br />
+          IsTech
+     </p>
+</div>
+<div class="footer">
+     <small>This email is an automatic message.
+          <br />
+          You are receiving this email because you are part of the IsTech support team
+     </small>
+</div>

@@ -4,9 +4,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phonenumber_field',
     'public'
 ]
 
@@ -88,8 +89,20 @@ MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 if DEBUG:
     STATICFILES_DIRS = [BASE_DIR, 'static']
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     STATIC_ROOT = BASE_DIR / 'static'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+DEFAULT_FROM_EMAIL = 'IsTech <noreply@istech.tn>'
+ADMIN_LIST_EMAILS = ['joudakenore@gmail.com']
