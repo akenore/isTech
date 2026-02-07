@@ -93,7 +93,7 @@ if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / 'static']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    ALLOWED_HOSTS = ["www.istech.tn", "istech.tn"]
+    ALLOWED_HOSTS = ["www.istech.tn", "istech.tn", "localhost"]
     STATIC_ROOT = BASE_DIR / 'static'
     # Security Settings
     SECURE_HSTS_SECONDS = 31536000  # 1 year
