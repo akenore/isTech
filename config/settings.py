@@ -4,9 +4,9 @@ from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ["*"]
+
 
 
 INSTALLED_APPS = [
@@ -88,10 +88,20 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 if DEBUG:
+    ALLOWED_HOSTS = ["*"]
     STATICFILES_DIRS = [BASE_DIR, 'static']
     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
+    ALLOWED_HOSTS = ["www.istech.tn", "istech.tn"]
     STATIC_ROOT = BASE_DIR / 'static'
+    # Security Settings
+    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
