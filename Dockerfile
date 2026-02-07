@@ -22,8 +22,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Collect static files
-# We set dummy environment variables so collectstatic doesn't fail if they are required but missing
-RUN SECRET_KEY='collectstatic-dummy-key' python app/manage.py collectstatic --no-input
+RUN DEBUG=False SECRET_KEY='collectstatic-dummy-key' python app/manage.py collectstatic --no-input
 
 # Expose port
 EXPOSE 8000
