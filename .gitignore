@@ -9,11 +9,6 @@ db.sqlite3
 /uploads/
 .env
 
-# Docker
-.dockerignore
-Dockerfile
-docker-compose.yml
-
 # OS
 .DS_Store
 

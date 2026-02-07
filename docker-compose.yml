@@ -1,0 +1,23 @@
+version: '4' # Optimized for Coolify v4
+
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - static_volume:/app/app/static
+      - media_volume:/app/app/uploads
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  static_volume:
+  media_volume:
