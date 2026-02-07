@@ -1,6 +1,6 @@
 
 from pathlib import Path
-from decouple import config
+from decouple import config, Csv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
@@ -91,7 +91,7 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
     STATICFILES_DIRS = [BASE_DIR / 'static']
-    # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     ALLOWED_HOSTS = ["www.istech.tn", "istech.tn"]
     STATIC_ROOT = BASE_DIR / 'static'
@@ -103,6 +103,7 @@ else:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
     # WhiteNoise Storage (Django 4.2+)
     STORAGES = {
@@ -115,7 +116,7 @@ else:
     }
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
@@ -125,5 +126,5 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
-DEFAULT_FROM_EMAIL = 'IsTech <noreply@istech.tn>'
-ADMIN_LIST_EMAILS = ['joudakenore@gmail.com']
+DEFAULT_FROM_EMAIL = 'IsTech <support@istech.tn>'
+ADMIN_LIST_EMAILS = config('ADMIN_LIST_EMAILS', cast=Csv())
