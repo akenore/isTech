@@ -22,6 +22,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -89,7 +90,7 @@ MEDIA_URL = '/uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
-    STATICFILES_DIRS = [BASE_DIR, 'static']
+    STATICFILES_DIRS = [BASE_DIR / 'static']
     # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     ALLOWED_HOSTS = ["www.istech.tn", "istech.tn"]
@@ -102,6 +103,16 @@ else:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+
+    # WhiteNoise Storage (Django 4.2+)
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

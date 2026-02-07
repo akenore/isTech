@@ -1,0 +1,23 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+/static/
+/uploads/
+.env
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# OS
+.DS_Store
+
+# Virtual Environment
+venv/
+env/
+ENV/
