@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     curl \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
