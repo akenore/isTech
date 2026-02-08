@@ -93,9 +93,10 @@ if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / 'static']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
-    ALLOWED_HOSTS = ["www.istech.tn", "istech.tn", "localhost"]
+    ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='istech.tn,www.istech.tn,localhost', cast=Csv())
     STATIC_ROOT = BASE_DIR / 'static'
     # Security Settings
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_HSTS_SECONDS = 31536000  # 1 year
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
@@ -111,7 +112,7 @@ else:
             "BACKEND": "django.core.files.storage.FileSystemStorage",
         },
         "staticfiles": {
-            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+            "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
         },
     }
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
