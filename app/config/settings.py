@@ -115,6 +115,7 @@ else:
             "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
         },
     }
+    WHITENOISE_MAX_AGE = 31536000  # 1 year in seconds
     # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
