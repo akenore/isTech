@@ -14,11 +14,10 @@
                {% block title %}
                {% endblock title %}
           </title>
-          <link rel="shortcut icon" href="{% static 'favicon.jpeg' %}"/>
-          
-          <!-- Preload Critical CSS -->
+          <!-- Preload Critical CSS and LCP Image -->
           <link rel="preload" href="{% static 'css/bootstrap.min.css' %}" as="style">
           <link rel="preload" href="{% static 'css/bundle.css' %}" as="style">
+          <link rel="preload" href="{% static 'img/slide_bg_circle.webp' %}" as="image" fetchpriority="high">
 
           <!-- Localized & Bundled CSS to eliminate render-blocking requests -->
           <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
