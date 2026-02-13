@@ -128,5 +128,5 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
-DEFAULT_FROM_EMAIL = 'IsTech <support@istech.tn>'
+DEFAULT_FROM_EMAIL = 'IsTech <noreply@istech.tn>'
 ADMIN_LIST_EMAILS = config('ADMIN_LIST_EMAILS', cast=Csv())
