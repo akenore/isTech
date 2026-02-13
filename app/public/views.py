@@ -1,14 +1,18 @@
+import logging
+
 from django.conf import settings
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy, reverse
-from django.utils.translation import gettext_lazy as _
-from django.template.loader import get_template
-from django.views.generic import TemplateView, CreateView
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import EmailMultiAlternatives
-from django.contrib.auth.models import User
-from public.models import Contact
+from django.template.loader import get_template
+from django.urls import reverse, reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from django.views.generic import CreateView, TemplateView
+
 from public.forms import ContactForm
+from public.models import Contact
+
+logger = logging.getLogger(__name__)
 
 from_email = settings.DEFAULT_FROM_EMAIL
 admin_emails = settings.ADMIN_LIST_EMAILS
@@ -44,7 +48,7 @@ class ContactView(SuccessMessageMixin, CreateView):
         email = form.cleaned_data['email']
         phone = form.cleaned_data['phone']
         message = form.cleaned_data['message']
-        object_url = get_admin_url
+        object_url = self.request.build_absolute_uri(reverse('admin:index'))
         site_url = self.request.build_absolute_uri(reverse('home'))
 
         admin_subject = _("IsTech: Request of consultancy - Action required")
@@ -77,7 +81,14 @@ class ContactView(SuccessMessageMixin, CreateView):
             'X-Sender': from_email,
         })
         admin_msg.attach_alternative(admin_html_content, "text/html")
-        admin_msg.send()
+        try:
+            admin_msg.send()
+        except Exception:
+            logger.exception("Failed to send admin contact email.")
+            messages.warning(
+                self.request,
+                "We received your request, but we were unable to notify our team by email.",
+            )
 
         client_subject = _("IsTech: Request for IT Consultancy Services - Confirmation")
         client_to_email = [email]
@@ -109,6 +120,9 @@ class ContactView(SuccessMessageMixin, CreateView):
             'X-Sender': from_email,
         })
         client_msg.attach_alternative(client_html_content, "text/html")
-        client_msg.send()
+        try:
+            client_msg.send()
+        except Exception:
+            logger.exception("Failed to send client confirmation email.")
 
         return super().form_valid(form)
